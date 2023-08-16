@@ -34,6 +34,7 @@ public class Solution01 {
 
     public int gcd(int a, int b) {
         int remainder = a % b;
+        // remainder 为0表明a是b的整数倍
         while (remainder != 0) {
             a = b;
             b = remainder;
@@ -43,7 +44,9 @@ public class Solution01 {
     }
 
     public String gcdOfStrings(String str1, String str2) {
-        // 实际就是求 left 和 right 长度的公因数
+        // 实际就是求 left 和 right 长度的最大公因数
+        // 因为要求求出来的字符串重复N次可以得到left，重复M次可以得到right
+        // 所以待求出的字符串长度避免left和right的最大公因数
         int n = gcd(str1.length(), str2.length());
         String result = str1.substring(0, n);
         if (checkGcd(str1, result) && checkGcd(str2, result)) {
