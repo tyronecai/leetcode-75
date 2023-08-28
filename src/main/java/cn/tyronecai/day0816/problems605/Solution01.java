@@ -29,7 +29,8 @@ public class Solution01 {
 
         int x = n;
         for (int i = 0; i < flowerbed.length; i++) {
-            // 检查当前位置i，当前位置左边或当前位置右边 是不是没种东西，这样的位置才能种东西
+            // 检查当前位置i，当前位置左边，和当前位置右边 是不是没种东西，这样的位置才能种东西
+            // 因为题目中提到，花不能种植在相邻的地块上
             if (checkSlot(flowerbed, i - 1) && checkSlot(flowerbed, i) && checkSlot(flowerbed, i + 1)) {
                 flowerbed[i] = 1;
                 x -= 1;
