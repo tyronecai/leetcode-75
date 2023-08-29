@@ -12,6 +12,7 @@ package cn.tyronecai.day0816.problems605;
  */
 public class Solution01 {
 
+    // 判断当前位置是不是0（没种东西），最左边的左边或最右边的右边，因为已经到外面去了，所以也是没种东西
     private boolean checkSlot(int[] flowerbed, int i) {
         if (i < 0 || i >= flowerbed.length) {
             return true;
@@ -28,6 +29,8 @@ public class Solution01 {
 
         int x = n;
         for (int i = 0; i < flowerbed.length; i++) {
+            // 检查当前位置i，当前位置左边，和当前位置右边 是不是没种东西，这样的位置才能种东西
+            // 因为题目中提到，花不能种植在相邻的地块上
             if (checkSlot(flowerbed, i - 1) && checkSlot(flowerbed, i) && checkSlot(flowerbed, i + 1)) {
                 flowerbed[i] = 1;
                 x -= 1;
